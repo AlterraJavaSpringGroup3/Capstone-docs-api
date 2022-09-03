@@ -70,7 +70,7 @@
 <table>
 <tr>
 <td><b> URL </b></td>
-<td> <b style="color:orange">{{baseURL}}</b>/api/v1/organization </td>
+<td> <b style="color:orange">{{baseURL}}</b>/api/v1/organization/create </td>
 </tr>
 <tr>
 <td><b> Method </b></td>
@@ -92,7 +92,7 @@
 	"organizationAddress" : "Beltway Office Park, Jakarta",
 	"organizationLat" : "-6.2931353",
 	"organizationLong" : "106.8219903",
-	"organizationRadius" : 100
+	"organizationRadius" : "100"
 }
 ```
 
@@ -111,11 +111,9 @@
         "organizationName" : "PT Ikonsultan Inovatama",
         "organizationPhone" : "(021)29857220",
         "organizationAddress" : "Beltway Office Park, Jakarta",
-        "organizationLat" : "-6.2931353",
-        "organizationLong" : "106.8219903",
-        "organizationRadius" : 100,
-        "createdAt" : "2022-08-12 17:00:00",
-        "updatedAt" : null
+        "organizationLat" : -6.2931353,
+        "organizationLong" : 106.8219903,
+        "organizationRadius" : 100
 	},
     "message": "success"
 }
@@ -129,9 +127,54 @@
 	
 ``` json
 {
-    "timestamp": "2022-08-12T17:00:00.893+07:00",
-    "status": 400,
-    "error": "Bad Request",
+    "code": 409,
+    "data": null,
+    "message": "organizationCode is Already Exist."
+}
+```
+
+	
+``` json
+{
+    "code": 409,
+    "data": null,
+    "message": "organizationCode can't be Blank."
+}
+```
+
+	
+``` json
+{
+    "code": 409,
+    "data": null,
+    "message": "organizationName can't be Blank."
+}
+```
+
+	
+``` json
+{
+    "code": 409,
+    "data": null,
+    "message": "organizationLat can't be Blank."
+}
+```
+
+	
+``` json
+{
+    "code": 409,
+    "data": null,
+    "message": "organizationLong can't be Blank."
+}
+```
+
+	
+``` json
+{
+    "code": 409,
+    "data": null,
+    "message": "organizationRadius can't be Blank."
 }
 ```
 
@@ -146,7 +189,7 @@
 <table>
 <tr>
 <td><b> URL </b></td>
-<td> <b style="color:orange">{{baseURL}}</b>/api/v1/organization </td>
+<td> <b style="color:orange">{{baseURL}}</b>/api/v1/organization/all </td>
 </tr>
 <tr>
 <td><b> Method </b></td>
@@ -170,11 +213,9 @@
             "organizationName" : "PT Ikonsultan Inovatama",
             "organizationPhone" : "(021)29857220",
             "organizationAddress" : "Beltway Office Park, Jakarta",
-            "organizationLat" : "-6.2931353",
-            "organizationLong" : "106.8219903",
+            "organizationLat" : -6.2931353,
+            "organizationLong" : 106.8219903,
             "organizationRadius" : 100
-            "createdAt": "2022-08-12 07:07:00",
-            "updatedAt": null
         }
     ],
 	"message": "success"
@@ -209,22 +250,16 @@
 	
 ``` json
 {
-    "code": 200,
-    "data": [
-        {
-            "ID": 1,
-            "organizationCode" : "IKON",
-            "organizationName" : "PT Ikonsultan Inovatama",
-            "organizationPhone" : "(021)29857220",
-            "organizationAddress" : "Beltway Office Park, Jakarta",
-            "organizationLat" : "-6.2931353",
-            "organizationLong" : "106.8219903",
-            "organizationRadius" : 100
-            "createdAt": "2022-08-12 07:07:00",
-            "updatedAt": null
-        }
-    ],
-	"message": "success"
+    "id": 1,
+    "organizationCode" : "IKON",
+    "organizationName" : "PT Ikonsultan Inovatama",
+    "organizationPhone" : "(021)29857220",
+    "organizationAddress" : "Beltway Office Park, Jakarta",
+    "organizationLat" : -6.2931353,
+    "organizationLong" : 106.8219903,
+    "organizationRadius" : 100
+    "createdAt": "2022-08-12 07:07:00",
+    "updatedAt": "2022-08-12 07:07:00"
 }
 
 ```
@@ -237,9 +272,9 @@
 	
 ``` json
 {
-    "code": 200,
+    "code": 404,
     "data": null,
-    "message": "failed"
+    "message": "organizationCode is Not Found."
 }
 
 ```
@@ -255,7 +290,7 @@
 <table>
 <tr>
 <td><b> URL </b></td>
-<td> <b style="color:orange">{{baseURL}}</b>/api/v1/organization </td>
+<td> <b style="color:orange">{{baseURL}}</b>/api/v1/organization/update </td>
 </tr>
 <tr>
 <td><b> Method </b></td>
@@ -278,7 +313,7 @@
 	"organizationAddress" : "Beltway Office Park, Jakarta",
 	"organizationLat" : "-6.2931353",
 	"organizationLong" : "106.8219903",
-	"organizationRadius" : 100
+	"organizationRadius" : "100"
 }
 ```
 
@@ -297,8 +332,8 @@
             "organizationName" : "PT Ikonsultan Inovatama",
             "organizationPhone" : "(021)29857220",
             "organizationAddress" : "Beltway Office Park, Jakarta",
-            "organizationLat" : "-6.2931353",
-            "organizationLong" : "106.8219903",
+            "organizationLat" : -6.2931353,
+            "organizationLong" : 106.8219903,
             "organizationRadius" : 100
             "createdAt": "2022-08-12 07:07:00",
             "updatedAt": "2022-08-12 07:08:00"
@@ -316,9 +351,19 @@
 	
 ``` json
 {
-    "code": 200,
+    "code": 404,
     "data": null,
-    "message": "failed"
+    "message": "Id is Not Found."
+}
+
+```
+	
+	
+``` json
+{
+    "code": 409,
+    "data": null,
+    "message": "organizationCode is Already Exist."
 }
 
 ```
@@ -376,9 +421,9 @@
 	
 ``` json
 {
-    "code": 200,
+    "code": 404,
     "data": null,
-    "message": "failed"
+    "message": "Id is Not Found."
 }
 
 ```
@@ -397,7 +442,7 @@
 <table>
 <tr>
 <td><b> URL </b></td>
-<td> <b style="color:orange">{{baseURL}}</b>/api/v1/employee </td>
+<td> <b style="color:orange">{{baseURL}}</b>/api/v1/employee/create </td>
 </tr>
 <tr>
 <td><b> Method </b></td>
@@ -415,10 +460,7 @@
 {
 	"employeeCode" : "20220800001",
 	"employeeName" : "Mashum Abdul Jabbar",
-	"employeeGender" : "L",
 	"employeePhone" : "0812345678",
-	"employeeMail" : "mashum.jabbar@gmail.com",
-	"employeePhoto" : "1b044a82b59b0ee304dae7416b442b04",
 	"employeeAddress" : "Jakarta Timur",
 	"organizationCode" : "IKON"
 }
@@ -434,19 +476,14 @@
 {
     "code": 201,
     "data": {
-        "id" : 1,
-        "employeeCode" : "20220800001",
-        "employeeName" : "Mashum Abdul Jabbar",
-        "employeeGender" : "L",
-        "employeePhone" : "0812345678",
-        "employeeMail" : "mashum.jabbar@gmail.com",
-        "employeePhoto" : "1b044a82b59b0ee304dae7416b442b04",
-        "employeeAddress" : "Jakarta Timur",
-        "organizationCode" : "IKON"
-        "createdAt" : "2022-08-12 17:00:00",
-        "updatedAt" : null
-	},
-    "message": "success"
+        "id": 1,
+        "employeeCode": "20220800001",
+        "employeeName": "Mashum Abdul Jabbar",
+        "employeePhone": "0812345678",
+        "employeeAddress": "Jakarta Timur",
+        "organizationCode": "IKON"
+    },
+    "message": "Success."
 }
 ```
 
@@ -458,9 +495,25 @@
 	
 ``` json
 {
-    "timestamp": "2022-08-12T17:00:00.893+07:00",
-    "status": 400,
-    "error": "Bad Request",
+    "message": "employeeCode is Already Exist."
+}
+```
+
+	
+``` json
+{
+    "code": 409,
+    "data": null,
+    "message": "employeeCode can't be Blank."
+}
+```
+
+	
+``` json
+{
+    "code": 409,
+    "data": null,
+    "message": "employeeName can't be Blank."
 }
 ```
 
@@ -475,7 +528,7 @@
 <table>
 <tr>
 <td><b> URL </b></td>
-<td> <b style="color:orange">{{baseURL}}</b>/api/v1/employee </td>
+<td> <b style="color:orange">{{baseURL}}</b>/api/v1/employee/all </td>
 </tr>
 <tr>
 <td><b> Method </b></td>
@@ -494,35 +547,16 @@
     "code": 200,
     "data": [
         {
-            "id" : 1,
-            "employeeCode" : "20220800001",
-            "employeeName" : "Mashum Abdul Jabbar",
-            "employeeGender" : "L",
-            "employeePhone" : "0812345678",
-            "employeeMail" : "mashum.jabbar@gmail.com",
-            "employeePhoto" : "1b044a82b59b0ee304dae7416b442b04",
-            "employeeAddress" : "Jakarta Timur",
-            "organizationCode" : "IKON"
-            "createdAt" : "2022-08-12 17:00:00",
-            "updatedAt" : null
-        },
-        {
-            "id" : 2,
-            "employeeCode" : "20220800002",
-            "employeeName" : "Dedi",
-            "employeeGender" : "L",
-            "employeePhone" : "0812345679",
-            "employeeMail" : "id.dedi81@gmail.com",
-            "employeePhoto" : "1b044a82b59b0ee304dae7416b442b05",
-            "employeeAddress" : "Jakarta Barat",
-            "organizationCode" : "IKON"
-            "createdAt" : "2022-08-12 17:05:00",
-            "updatedAt" : null
+            "id": 1,
+            "employeeCode": "20220800001",
+            "employeeName": "Mashum Abdul Jabbar",
+            "employeePhone": "0812345678",
+            "employeeAddress": "Jakarta Timur",
+            "organizationCode": "IKON"
         }
     ],
-	"message": "success"
+    "message": "Success."
 }
-
 ```
 
 </td>
@@ -552,25 +586,16 @@
 	
 ``` json
 {
-    "code": 200,
-    "data": [
-        {
-            "id" : 1,
-            "employeeCode" : "20220800001",
-            "employeeName" : "Mashum Abdul Jabbar",
-            "employeeGender" : "L",
-            "employeePhone" : "0812345678",
-            "employeeMail" : "mashum.jabbar@gmail.com",
-            "employeePhoto" : "1b044a82b59b0ee304dae7416b442b04",
-            "employeeAddress" : "Jakarta Timur",
-            "organizationCode" : "IKON"
-            "createdAt" : "2022-08-12 17:00:00",
-            "updatedAt" : null
-        }
-    ],
-	"message": "success"
+    "id": 1,
+    "employeeCode": "20220800001",
+    "employeeName": "Mashum Abdul Jabbar",
+	"employeePhone": "0812345678",
+    "organizationCode": "IKON",
+    "organizationName": "PT Ikonsultan Inovatama",
+    "employeeAddress": "Jakarta Timur",
+    "createdAt": "2022-08-25T23:41:51",
+    "updatedAt": "2022-08-25T23:41:51"
 }
-
 ```
 
 </td>
@@ -581,11 +606,10 @@
 	
 ``` json
 {
-    "code": 200,
+    "code": 404,
     "data": null,
-    "message": "failed"
+    "message": "employeeCode is Not Found."
 }
-
 ```
 
 </td>
@@ -599,7 +623,7 @@
 <table>
 <tr>
 <td><b> URL </b></td>
-<td> <b style="color:orange">{{baseURL}}</b>/api/v1/employee </td>
+<td> <b style="color:orange">{{baseURL}}</b>/api/v1/employee/update </td>
 </tr>
 <tr>
 <td><b> Method </b></td>
@@ -618,14 +642,9 @@
 	"id" : 1,
 	"employeeCode" : "20220800001",
 	"employeeName" : "Mashum Abdul Jabbar",
-	"employeeGender" : "L",
-	"employeePhone" : "0812345678",
-	"employeeMail" : "mashum.jabbar@gmail.com",
-	"employeePhoto" : "1b044a82b59b0ee304dae7416b442b04",
+	"employeePhone" : "08123456789",
 	"employeeAddress" : "Jakarta Timur",
 	"organizationCode" : "IKON"
-	"createdAt" : "2022-08-12 17:00:00",
-	"updatedAt" : null
 }
 ```
 
@@ -637,23 +656,17 @@
 	
 ``` json
 {
-    "code": 200,
+    "code": 201,
     "data": {
-            "id" : 1,
-            "employeeCode" : "20220800001",
-            "employeeName" : "Mashum Abdul Jabbar",
-            "employeeGender" : "L",
-            "employeePhone" : "0812345678",
-            "employeeMail" : "mashum.jabbar@gmail.com",
-            "employeePhoto" : "1b044a82b59b0ee304dae7416b442b04",
-            "employeeAddress" : "Jakarta Timur",
-            "organizationCode" : "IKON"
-            "createdAt" : "2022-08-12 17:00:00",
-            "updatedAt": "2022-08-12 07:08:00"
+        "id": 1,
+        "employeeCode": "20220800001",
+        "employeeName": "Mashum Abdul Jabbar",
+        "employeePhone": "08123456789",
+        "employeeAddress": "Jakarta Timur",
+        "organizationCode": "IKON"
     },
-	"message": "success"
+    "message": "Success."
 }
-
 ```
 
 </td>
@@ -700,19 +713,14 @@
 {
     "code": 200,
     "data": {
-            "id" : 1,
-            "employeeCode" : "20220800001",
-            "employeeName" : "Mashum Abdul Jabbar",
-            "employeeGender" : "L",
-            "employeePhone" : "0812345678",
-            "employeeMail" : "mashum.jabbar@gmail.com",
-            "employeePhoto" : "1b044a82b59b0ee304dae7416b442b04",
-            "employeeAddress" : "Jakarta Timur",
-            "organizationCode" : "IKON"
-            "createdAt" : "2022-08-12 17:00:00",
-            "updatedAt": "2022-08-12 07:08:00"
+        "id": 1,
+        "employeeCode": "20220800001",
+        "employeeName": "Mashum Abdul Jabbar",
+        "employeePhone": "0812345678",
+        "employeeAddress": "Jakarta Timur",
+        "organizationCode": "IKON"
     },
-	"message": "success"
+    "message": "Success."
 }
 
 ```
@@ -725,9 +733,9 @@
 	
 ``` json
 {
-    "code": 200,
+    "code": 404,
     "data": null,
-    "message": "failed"
+    "message": "Id is Not Found."
 }
 
 ```
@@ -765,7 +773,6 @@
 	"attendancePhoto" : "1b044a82b59b0ee304dae7416b442b05",
 	"attendanceLong" : "106.8975194",
 	"attendanceLat" : "-6.3402008",
-	"attendanceTimezone" : "UTC/GMT +7.00 hours",
 	"attendanceType" : "Clock In",
 	"employeeCode" : "20220800001"
 }
@@ -785,8 +792,9 @@
         "attendancePhoto" : "1b044a82b59b0ee304dae7416b442b05",
 		"attendanceLong" : "106.8975194",
 		"attendanceLat" : "-6.3402008",
-		"attendanceTimezone" : "UTC/GMT +7.00 hours",
-        "attendanceTimeserver" : "2022-08-12 08:00:00",
+		"attendanceLabel" : "WFH",
+		"attendanceTimezone" : "WIB",
+		"attendanceTimeserver" : "2022-08-12 08:00:00",
 		"attendanceType" : "Clock In",
 		"employeeCode" : "20220800001"
 	},
@@ -802,10 +810,11 @@
 	
 ``` json
 {
-    "timestamp": "2022-08-12T08:00:00.893+07:00",
-    "status": 400,
-    "error": "Bad Request",
+    "code": 404,
+    "data": null,
+    "message": "Id is Not Found."
 }
+
 ```
 
 </td>
@@ -843,7 +852,7 @@
             "attendanceLong" : "106.8975194",
             "attendanceLat" : "-6.3402008",
             "attendanceLabel" : "WFH",
-            "attendanceTimezone" : "UTC/GMT +7.00 hours",
+            "attendanceTimezone" : "WIB",
             "attendanceTimeserver" : "2022-08-12 08:00:00",
             "attendanceType" : "Clock In",
             "employeeCode" : "20220800001"
@@ -914,21 +923,15 @@
 	
 ``` json
 {
-    "code": 200,
-    "data": [
-        {
-            "id" : 1,
-            "attendancePhoto" : "1b044a82b59b0ee304dae7416b442b05",
-            "attendanceLong" : "106.8975194",
-            "attendanceLat" : "-6.3402008",
-            "attendanceLabel" : "WFH",
-            "attendanceTimezone" : "UTC/GMT +7.00 hours",
-            "attendanceTimeserver" : "2022-08-12 08:00:00",
-            "attendanceType" : "Clock In",
-            "employeeCode" : "20220800001"
-        }
-    ],
-	"message": "success"
+    "id" : 1,
+    "attendancePhoto" : "1b044a82b59b0ee304dae7416b442b05",
+    "attendanceLong" : "106.8975194",
+    "attendanceLat" : "-6.3402008",
+    "attendanceLabel" : "WFH",
+    "attendanceTimezone" : "WIB",
+    "attendanceTimeserver" : "2022-08-12 08:00:00",
+    "attendanceType" : "Clock In",
+    "employeeCode" : "20220800001"
 }
 
 ```
@@ -941,9 +944,9 @@
 	
 ``` json
 {
-    "code": 200,
+    "code": 404,
     "data": null,
-    "message": "failed"
+    "message": "Id is Not Found."
 }
 
 ```
@@ -979,9 +982,6 @@
 	"attendancePhoto" : "1b044a82b59b0ee304dae7416b442b05",
 	"attendanceLong" : "106.8975194",
 	"attendanceLat" : "-6.3402008",
-	"attendanceLabel" : "WFH",
-	"attendanceTimezone" : "UTC/GMT +7.00 hours",
-	"attendanceTimeserver" : "2022-08-12 08:00:00",
 	"attendanceType" : "Clock In",
 	"employeeCode" : "20220800001"
 }
@@ -1002,7 +1002,7 @@
             "attendanceLong" : "106.8975194",
             "attendanceLat" : "-6.3402008",
             "attendanceLabel" : "WFH",
-            "attendanceTimezone" : "UTC/GMT +7.00 hours",
+            "attendanceTimezone" : "WIB",
             "attendanceTimeserver" : "2022-08-12 08:00:00",
             "attendanceType" : "Clock In",
             "employeeCode" : "20220800001"
@@ -1020,9 +1020,9 @@
 	
 ``` json
 {
-    "code": 200,
+    "code": 404,
     "data": null,
-    "message": "failed"
+    "message": "Id is Not Found."
 }
 
 ```
@@ -1061,7 +1061,7 @@
             "attendanceLong" : "106.8975194",
             "attendanceLat" : "-6.3402008",
             "attendanceLabel" : "WFH",
-            "attendanceTimezone" : "UTC/GMT +7.00 hours",
+            "attendanceTimezone" : "WIB",
             "attendanceTimeserver" : "2022-08-12 08:00:00",
             "attendanceType" : "Clock In",
             "employeeCode" : "20220800001"
@@ -1079,9 +1079,9 @@
 	
 ``` json
 {
-    "code": 200,
+    "code": 404,
     "data": null,
-    "message": "failed"
+    "message": "Id is Not Found."
 }
 
 ```
@@ -1100,7 +1100,7 @@
 <table>
 <tr>
 <td><b> URL </b></td>
-<td> <b style="color:orange">{{baseURL}}</b>/api/v1/user </td>
+<td> <b style="color:orange">{{baseURL}}</b>/api/v1/user/create </td>
 </tr>
 <tr>
 <td><b> Method </b></td>
@@ -1116,10 +1116,9 @@
 	
 ``` json
 {
-	"username" : "mashumabduljabbar",
-	"password" : "mashum**123",
-	"roles" : "USER",
-	"status" : "Aktif",
+	"userName" : "mashumabduljabbar",
+	"userPassword" : "mashum**123",
+	"userRoles" : "PEGAWAI",
 	"employeeCode" : "20220800001"
 }
 ```
@@ -1135,12 +1134,10 @@
     "code": 201,
     "data": {
         "id" : "1",
-        "username" : "mashumabduljabbar",
-        "roles" : "USER",
-        "status" : "Aktif",
-        "employeeCode" : "20220800001",
-        "createdAt" : "2022-08-12 17:00:00",
-        "updatedAt" : null
+        "userName" : "mashumabduljabbar",
+        "userPassword" : "mashum**123",
+        "userRoles" : "PEGAWAI",
+        "employeeCode" : "20220800001"
 	},
     "message": "success"
 }
@@ -1154,9 +1151,7 @@
 	
 ``` json
 {
-    "timestamp": "2022-08-12T17:00:00.893+07:00",
-    "status": 400,
-    "error": "Bad Request",
+    "message": "userName is Already Exist."
 }
 ```
 
@@ -1171,7 +1166,7 @@
 <table>
 <tr>
 <td><b> URL </b></td>
-<td> <b style="color:orange">{{baseURL}}</b>/api/v1/user </td>
+<td> <b style="color:orange">{{baseURL}}</b>/api/v1/user/all </td>
 </tr>
 <tr>
 <td><b> Method </b></td>
@@ -1191,21 +1186,17 @@
     "data": [
         {
             "id" : "1",
-            "username" : "mashumabduljabbar",
-            "roles" : "USER",
-            "status" : "Aktif",
-            "employeeCode" : "20220800001",
-            "createdAt" : "2022-08-12 17:00:00",
-            "updatedAt" : null
+            "userName" : "mashumabduljabbar",
+            "userPassword" : "mashum**123",
+            "userRoles" : "ADMIN",
+            "employeeCode" : "20220800001"
         },
         {
             "id" : "2",
-            "username" : "dedi",
-            "roles" : "ADMIN",
-            "status" : "Aktif",
-            "employeeCode" : "20220800002",
-            "createdAt" : "2022-08-12 17:00:00",
-            "updatedAt" : null
+            "userName" : "dedi",
+            "userPassword" : "dedi**123",
+            "userRoles" : "PEGAWAI",
+            "employeeCode" : "20220800002"
         }
     ],
 	"message": "success"
@@ -1244,12 +1235,10 @@
     "data": [
         {
             "id" : "1",
-            "username" : "mashumabduljabbar",
-            "roles" : "USER",
-            "status" : "Aktif",
-            "employeeCode" : "20220800001",
-            "createdAt" : "2022-08-12 17:00:00",
-            "updatedAt" : null
+            "userName" : "mashumabduljabbar",
+            "userPassword" : "mashum**123",
+            "userRoles" : "ADMIN",
+            "employeeCode" : "20220800001"
         }
     ],
 	"message": "success"
@@ -1265,9 +1254,9 @@
 	
 ``` json
 {
-    "code": 200,
+    "code": 404,
     "data": null,
-    "message": "failed"
+    "message": "userName is Not Found."
 }
 
 ```
@@ -1283,7 +1272,7 @@
 <table>
 <tr>
 <td><b> URL </b></td>
-<td> <b style="color:orange">{{baseURL}}</b>/api/v1/user </td>
+<td> <b style="color:orange">{{baseURL}}</b>/api/v1/user/update </td>
 </tr>
 <tr>
 <td><b> Method </b></td>
@@ -1299,11 +1288,10 @@
 	
 ``` json
 {
-	"id" : "1",
-	"username" : "mashumjabbar",
-	"password" : "mashum**123",
-	"roles" : "USER",
-	"status" : "Aktif",
+	"id" : 1,
+	"userName" : "mashumabduljabbar",
+	"userPassword" : "mashum**123",
+	"userRoles" : "PEGAWAI",
 	"employeeCode" : "20220800001"
 }
 ```
@@ -1339,9 +1327,9 @@
 	
 ``` json
 {
-    "code": 200,
+    "code": 404,
     "data": null,
-    "message": "failed"
+    "message": "Id is Not Found."
 }
 
 ```
@@ -1417,7 +1405,7 @@
 <table>
 <tr>
 <td><b> URL</b></td>
-<td> <b style="color:orange">{{baseURL}}</b>/api/v1/file 
+<td> <b style="color:orange">{{baseURL}}</b>/api/v1/file/create 
 
 [comment]: <> (https://firebasestorage.googleapis.com/v0/b/<b style="color:orange">ProjectID</b>.appspot.com/o)
 [comment]: <> (?uploadType=media&name=<b style="color:orange">filename</b>)
@@ -1433,10 +1421,6 @@
 <td> Bearer Token </td>
 </tr>
 <tr>
-<td><b> Params </b></td>
-<td> ?uploadType=media&names=<b style="color:orange">filename</b></b></td>
-</tr>
-<tr>
 <td><b> Body </b></td>
 <td>
 	
@@ -1450,11 +1434,13 @@
 	
 ``` json
 {
-    "fileName": "filename.png",
-    "fileURL": "ProjectID.appspot.com",
-    "fileCode": "1660800496188743",
-    "createdAt": "2022-08-18T05:28:16.235Z",
-    "updatedAt": "2022-08-18T05:28:16.235Z"
+    "code": 201,
+    "data": {
+        "id": 1,
+        "fileCode": "2d94a0f3-3485-4152-b06a-15bfe998c524",
+        "fileName": "previous.png"
+    },
+    "message": "Success."
 }
 ```
 
@@ -1466,10 +1452,9 @@
 	
 ``` json
 {
-    "error": {
-        "code": 400,
-        "message": "Invalid HTTP method/URL pair."
-    }
+    "code": 409,
+    "data": null,
+    "message": "File Not Found."
 }
 ```
 
@@ -1484,7 +1469,7 @@
 <table>
 <tr>
 <td><b> GET</b></td>
-<td> <b style="color:orange">{{baseURL}}</b>/api/v1/file
+<td> <b style="color:orange">{{baseURL}}</b>/api/v1/file/2d94a0f3-3485-4152-b06a-15bfe998c524
 
 [comment]: <> (https://firebasestorage.googleapis.com/v0/b/<b style="color:orange">ProjectID</b>.appspot.com/o/<b style="color:orange">filename</b>)
 [comment]: <> (?alt=media)
@@ -1500,14 +1485,20 @@
 <td> Bearer Token </td>
 </tr>
 <tr>
-<td><b> Params </b></td>
-<td> ?fileCode=1660800496188743</b></td>
-</tr>
-<tr>
 <td><b> Success Response </b></td>
 <td>
+
 	
-<img src="image\image.png">
+``` json
+{
+    "code": 200,
+    "data": {
+        "fileCode": "2d94a0f3-3485-4152-b06a-15bfe998c524",
+        "filePath": "https://firebasestorage.googleapis.com/v0/b/capstone-alterra.appspot.com/o/2d94a0f3-3485-4152-b06a-15bfe998c524Spring5.png?alt=media"
+    },
+    "message": "Success."
+}
+```
 
 </td>
 </tr>
